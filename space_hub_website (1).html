@@ -15,7 +15,7 @@
         body {
             font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #0a0a0f, #1a1a2e, #2d1b69, #11998e);
-            color: black ;
+            color: white ;
             overflow-x: hidden;
             min-height: 100vh;
         }
@@ -458,26 +458,27 @@
     
     <div class="container">
         <header>
-            <div class="logo">🚀 Space Hub 🌟</div>
+            <div class="logo">Cosmic Curriculum</div>
         </header>
         
         <nav class="nav-tabs">
             <button class="tab-button active" onclick="showTab('home')">Home</button>
-            <button class="tab-button" onclick="showTab('launches')">Live Rocket Launch</button>
+            <button class="tab-button" onclick="showTab('launches')">Live Rocket Launches</button>
             <button class="tab-button" onclick="showTab('cubesat')">What's a CubeSat?</button>
-            <button class="tab-button" onclick="showTab('learn')">Let's Learn!</button>
+            <button class="tab-button" onclick="showTab('learn')">Learn about space</button>
             <button class="tab-button" onclick="showTab('news')">Space News</button>
             <button class="tab-button" onclick="showTab('competitions')">Competitions</button>
+          <!-- do i need this -->
             <button class="tab-button" onclick="showTab('about')">About Us</button>
         </nav>
         
         <!-- Home Tab -->
         <div id="home" class="tab-content active">
             <div class="hero">
-                <h1>Want to learn about space? 🌌</h1>
-                <p style="font-size: 1.2em; margin-bottom: 20px;">Welcome to your cosmic adventure! Discover the wonders of the universe with fun facts, cool videos, and exciting competitions!</p>
+                <h1>Dive deeper into space exploration </h1>
+                <p style="font-size: 1.2em; margin-bottom: 20px;">Welcome to the space exploration hub! Navigate through the tabs to discover cool things about space, satellites, and even competitions!</p>
             </div>
-            
+            <!-- SPACE FACT CARD THINGS
             <div class="space-facts">
                 <div class="fact-card">
                     <div class="fact-emoji">🌟</div>
@@ -516,21 +517,27 @@
                 </div>
             </div>
         </div>
+          -->
         
         <!-- Live Rocket Launch Tab -->
         <div id="launches" class="tab-content">
-            <h2 style="text-align: center; margin-bottom: 30px; color: #ff6b9d;">🚀 Live Rocket Launches</h2>
+            <h2 style="text-align: center; margin-bottom: 30px; color: #ff6b9d;"> Space Livestreams</h2>
             
             <div class="content-grid">
                 <div class="content-card">
                     <h3>SpaceX Falcon 9 Launch</h3>
-                    <iframe class="rocket-embed" src="https://www.youtube.com/embed/live_stream?channel=UCtI0Hodo5o5dUb67FeUjDeA" allowfullscreen></iframe>
-                    <p>Watch SpaceX's latest Falcon 9 missions live! From satellite deployments to ISS resupply missions.</p>
+                    <a href="https://www.youtube.com/watch?v=21X5lGlDOfg" target="_blank">
+                      <img class="rocket-thumbnail" 
+                         src="https://img.youtube.com/vi/21X5lGlDOfg/hqdefault.jpg" 
+                         alt="SpaceX Live Stream Thumbnail">
+                    </a>
+                    
+                    <p>Watch SpaceX's latest Falcon 9 missions live!</p>
                 </div>
-                
+            </div>  
                 <div class="content-card">
                     <h3>NASA Live Stream</h3>
-                    <iframe class="rocket-embed" src="https://www.youtube.com/embed/live_stream?channel=UCLA_DiR1FfKNvjuUpBHmylQ" allowfullscreen></iframe>
+                    <iframe class="rocket-embed" src="https://www.youtube.com/watch?v=H999s0P1Er0" allowfullscreen></iframe>
                     <p>NASA's official live stream covering launches, spacewalks, and mission updates.</p>
                 </div>
                 
