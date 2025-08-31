@@ -9,6 +9,7 @@
     <title>Cosmos Curriculum</title>
 </head>
 
+
 <body>
     <script>
         // Create twinkling stars
@@ -30,11 +31,13 @@
 
         // Tab functionality
         function showTab(tabName, event) {
+        function showTab(tabName, event) {
             // Hide all tab contents
             const tabContents = document.querySelectorAll('.tab-content');
             tabContents.forEach(tab => {
                 tab.classList.remove('active');
             });
+
 
             // Remove active class from all buttons
             const tabButtons = document.querySelectorAll('.tab-button');
@@ -42,8 +45,10 @@
                 button.classList.remove('active');
             });
 
+
             // Show selected tab content
             document.getElementById(tabName).classList.add('active');
+
 
             // Add active class to clicked button
             event.target.classList.add('active');
@@ -70,7 +75,9 @@
             createStars();
         });
 
+
     </script>
+
 
     <div class="stars" id="stars"></div>
 
