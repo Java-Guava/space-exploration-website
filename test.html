@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
+    <title>CubeSat Education</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: "Segoe UI", sans-serif;
+        color: white;
+        background: radial-gradient(
+          ellipse at bottom,
+          #1b2735 0%,
+          #090a0f 100%
+        );
+        overflow-x: hidden;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url("https://www.transparenttextures.com/patterns/stardust.png")
+          repeat;
+        opacity: 0.4;
+        z-index: -1;
+      }
+
+      header {
+        text-align: center;
+        padding: 50px 20px;
+      }
+
+      header h1 {
+        font-size: 3em;
+        background: linear-gradient(90deg, #00d4ff, #0077ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 0 20px rgba(0, 212, 255, 0.6);
+      }
+
+      nav {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 30px;
+        margin-bottom: 50px;
+      }
+
+      /* Rocket-shaped nav buttons */
+      .rocket {
+        position: relative;
+        width: 60px;
+        height: 120px;
+        background: linear-gradient(to bottom, #00d4ff, #0077ff);
+        border-radius: 30px 30px 10px 10px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        color: white;
+        font-size: 12px;
+        text-decoration: none;
+        text-align: center;
+        padding-bottom: 5px;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .rocket::before {
+        content: "";
+        position: absolute;
+        top: -30px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 0;
+        border-left: 30px solid transparent;
+        border-right: 30px solid transparent;
+        border-bottom: 30px solid #00d4ff;
+      }
+
+      .rocket::after {
+        content: "";
+        position: absolute;
+        bottom: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 20px;
+        height: 20px;
+        background: radial-gradient(circle, orange, red);
+        border-radius: 50%;
+        box-shadow: 0 0 20px rgba(255, 100, 0, 0.9);
+      }
+
+      .rocket:hover {
+        transform: translateY(-10px) scale(1.1);
+        box-shadow: 0 0 25px rgba(0, 212, 255, 0.9);
+      }
+
+      section {
+        max-width: 900px;
+        margin: auto;
+        padding: 40px 20px;
+        background: rgba(0, 0, 0, 0.6);
+        border-radius: 15px;
+        margin-bottom: 50px;
+        box-shadow: 0 0 25px rgba(0, 212, 255, 0.3);
+      }
+
+      section h2 {
+        color: #00d4ff;
+        margin-bottom: 15px;
+      }
+
+      .rocket-button {
+        display: block;
+        font-size: 2rem; /* Adjust icon size */
+        color: #fff;
+        background: #007bff; /* Example background color */
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .rocket-button:hover {
+        transform: translateY(-5px); /* Move the rocket up slightly on hover */
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>CubeSat Education Hub</h1>
+      <p>Explore, Learn, and Build Your Own CubeSat</p>
+    </header>
+
+    <nav>
+      <a href="#top" class="rocket-button">
+    <i class="fa-solid fa-rocket"></i>
+    Home
+  </a>
+        
+      <a
+        class="rocket"
+        href="#about">About Us</a>
+      <a
+        class="rocket"
+        href="#what"
+        >CubeSat</a
+      >
+      <a
+        class="rocket"
+        href="#launches"
+        >Launches</a
+      >
+      <a
+        class="rocket"
+        href="#news"
+        >News</a
+      >
+      <a
+        class="rocket"
+        href="#learn"
+        >Learn</a
+      >
+      <a
+        class="rocket"
+        href="#competitions"
+        >Competitions</a
+      >
+    </nav>
+
+    <section id="home">
+      <h2>Welcome</h2>
+      <p>
+        This platform helps students and enthusiasts learn about CubeSats, space
+        exploration, and how satellites are changing our world.
+      </p>
+    </section>
+
+    <section id="about">
+      <h2>About Us</h2>
+      <p>
+        We are a community of space enthusiasts, engineers, and educators
+        dedicated to teaching the next generation about CubeSat technology.
+      </p>
+    </section>
+
+    <section id="what">
+      <h2>What is a CubeSat?</h2>
+      <p>
+        A CubeSat is a miniature satellite typically built in units of 10x10x10
+        cm. They are used in research, Earth observation, and technology
+        testing.
+      </p>
+    </section>
+
+    <section id="launches">
+      <h2>Live Rocket Launches</h2>
+      <p>
+        Stay tuned for live streams of rocket launches carrying CubeSats and
+        other satellites into orbit!
+      </p>
+    </section>
+
+    <section id="news">
+      <h2>Space News</h2>
+      <p>
+        Get the latest updates on space exploration, CubeSat projects, and new
+        discoveries in astronomy.
+      </p>
+    </section>
+
+    <section id="learn">
+      <h2>Learn About Space</h2>
+      <p>
+        Dive into educational resources, guides, and tutorials to learn about
+        satellite building, orbital mechanics, and astronomy.
+      </p>
+    </section>
+
+    <section id="competitions">
+      <h2>Competitions</h2>
+      <p>
+        Find global CubeSat design and space competitions for students and
+        enthusiasts to showcase their ideas and innovations.
+      </p>
+    </section>
+  </body>
+</html>

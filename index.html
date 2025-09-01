@@ -6,12 +6,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Cosmos Curriculum</title>
+    <title>Cosmic Curriculum</title>
+    <!-- Font Awesome for rocket icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
 </head>
 
 
 <body>
-    <script>
+     <script src="jscriptFunctions.js"></script>
+    <!-- <script>
         // Create twinkling stars
         function createStars() {
             const starsContainer = document.getElementById('stars');
@@ -76,15 +81,66 @@
 
 
     </script>
+-->
+<!-- Fetch sidebar -->
+  <script>
+    fetch('nav.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('sidebar').innerHTML = data;
+      })
+      .catch(err => console.error('Failed to load navigation:', err));
+  </script>
 
 
     <div class="stars" id="stars"></div>
+<div id="sidebar"></div>
 
     <div class="container">
         <header>
-            <div class="logo">Cosmic Curriculum</div>
+            <div class="logo">Orbit Education</div>
+            <h2>From Classroom to Cosmos!
+                <br>
+                Cosmic Curriculum to Explore, Learn, and Build Your Own CubeSat
+            </h2>
         </header>
 
+
+
+        <!-- Sidebar Nav -->
+        <nav>
+            <a class="rocket-button" href="index.html">
+                <i class="fa-solid fa-rocket"></i>
+                <span>Home</span>
+            </a>
+            <a class="rocket-button" href="about.html">
+                <i class="fa-solid fa-rocket"></i>
+                <span>About</span>
+            </a>
+            <a class="rocket-button" href="cubesat.html">
+                <i class="fa-solid fa-rocket"></i>
+                <span>CubeSat</span>
+            </a>
+            <a class="rocket-button" href="launches.html">
+                <i class="fa-solid fa-rocket"></i>
+                <span>Launches</span>
+            </a>
+            <a class="rocket-button" href="spacenews.html">
+                <i class="fa-solid fa-rocket"></i>
+                <span>News</span>
+            </a>
+            <a class="rocket-button" href="learn.html">
+                <i class="fa-solid fa-rocket"></i>
+                <span>Learn</span>
+            </a>
+            <a class="rocket-button" href="competitions.html">
+                <i class="fa-solid fa-rocket"></i>
+                <span>Competitions</span>
+            </a>
+        </nav>
+
+
+        <!--
         <nav class="nav-tabs">
             <button class="tab-button" onclick="showTab('home', event)">Home</button>
             <button class="tab-button" onclick="showTab('launches', event)">Live Rocket Launches</button>
@@ -92,9 +148,11 @@
             <button class="tab-button" onclick="showTab('learn', event)">Learn about space</button>
             <button class="tab-button" onclick="showTab('news', event)">Space News</button>
             <button class="tab-button" onclick="showTab('competitions', event)">Competitions</button>
-            <!-- do i need this -->
+
+        
             <button class="tab-button" onclick="showTab('about', event)">About Us</button>
         </nav>
+    -->
 
         <!-- Home Tab (default visible) -->
         <div id="home" class="tab-content active">

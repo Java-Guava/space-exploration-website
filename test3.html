@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CubeSat Education</title>
+
+  <!-- Font Awesome for rocket icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <style>
+    /* Space background */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+      line-height: 1.5;
+      display: flex; /* make room for sidebar */
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
+      opacity: 0.4;
+      z-index: -1;
+    }
+
+    /* Sidebar navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 80px;
+      background: rgba(0, 0, 0, 0.7);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 0;
+      gap: 25px;
+      box-shadow: 2px 0 10px rgba(0, 212, 255, 0.4);
+      z-index: 10;
+    }
+
+    .rocket-button {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      color: white;
+      font-size: 0.8em;
+      text-align: center;
+      transition: transform 0.3s, color 0.3s;
+    }
+
+    .rocket-button i {
+      font-size: 28px;
+      color: #00d4ff;
+      margin-bottom: 5px;
+      transition: transform 0.3s, text-shadow 0.3s, color 0.3s;
+    }
+
+    .rocket-button:hover i {
+      transform: translateY(-6px);
+      text-shadow: 0 0 15px rgba(0, 212, 255, 0.9);
+      color: #ffffff;
+    }
+
+    /* Page content wrapper */
+    .content {
+      margin-left: 100px; /* space for sidebar */
+      flex: 1;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    header h1 {
+      font-size: clamp(2em, 5vw, 3em);
+      background: linear-gradient(90deg, #00d4ff, #0077ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 20px rgba(0, 212, 255, 0.6);
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: clamp(1em, 3vw, 1.2em);
+    }
+
+    section {
+      max-width: 900px;
+      margin: auto;
+      padding: 25px 15px;
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 15px;
+      margin-bottom: 40px;
+      box-shadow: 0 0 25px rgba(0, 212, 255, 0.3);
+    }
+
+    section h2 {
+      color: #00d4ff;
+      margin-bottom: 10px;
+      font-size: clamp(1.4em, 4vw, 2em);
+    }
+
+    section p {
+      font-size: clamp(0.95em, 2.5vw, 1.1em);
+    }
+
+    /* Responsive tweaks for smaller screens */
+    @media (max-width: 600px) {
+      nav {
+        width: 65px;
+        gap: 18px;
+        padding: 15px 0;
+      }
+
+      .rocket-button i {
+        font-size: 32px; /* make rockets bigger */
+      }
+
+      .rocket-button span {
+        display: none; /* hide text labels if screen too narrow */
+      }
+
+      .content {
+        margin-left: 75px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar Nav -->
+  <nav>
+    <a class="rocket-button" href="#home">
+      <i class="fa-solid fa-rocket"></i>
+      <span>Home</span>
+    </a>
+    <a class="rocket-button" href="#about">
+      <i class="fa-solid fa-rocket"></i>
+      <span>About</span>
+    </a>
+    <a class="rocket-button" href="#what">
+      <i class="fa-solid fa-rocket"></i>
+      <span>CubeSat</span>
+    </a>
+    <a class="rocket-button" href="#launches">
+      <i class="fa-solid fa-rocket"></i>
+      <span>Launches</span>
+    </a>
+    <a class="rocket-button" href="#news">
+      <i class="fa-solid fa-rocket"></i>
+      <span>News</span>
+    </a>
+    <a class="rocket-button" href="#learn">
+      <i class="fa-solid fa-rocket"></i>
+      <span>Learn</span>
+    </a>
+    <a class="rocket-button" href="#competitions">
+      <i class="fa-solid fa-rocket"></i>
+      <span>Competitions</span>
+    </a>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="content">
+    <header>
+      <h1>Orbit Education</h1>
+      <p>From Classroom to Cosmos. Explore, Learn, and Build Your Own CubeSat</p>
+    </header>
+
+    <section id="home">
+      <h2>Welcome</h2>
+      <p>This platform helps students and enthusiasts learn about CubeSats, space exploration, and how satellites are changing our world.</p>
+    </section>
+
+    <section id="about">
+      <h2>About Us</h2>
+      <p>We are a community of space enthusiasts, engineers, and educators dedicated to teaching the next generation about CubeSat technology.</p>
+    </section>
+
+    <section id="what">
+      <h2>What is a CubeSat?</h2>
+      <p>A CubeSat is a miniature satellite typically built in units of 10x10x10 cm. They are used in research, Earth observation, and technology testing.</p>
+    </section>
+
+    <section id="launches">
+      <h2>Live Rocket Launches</h2>
+      <p>Stay tuned for live streams of rocket launches carrying CubeSats and other satellites into orbit!</p>
+    </section>
+
+    <section id="news">
+      <h2>Space News</h2>
+      <p>Get the latest updates on space exploration, CubeSat projects, and new discoveries in astronomy.</p>
+    </section>
+
+    <section id="learn">
+      <h2>Learn About Space</h2>
+      <p>Dive into educational resources, guides, and tutorials to learn about satellite building, orbital mechanics, and astronomy.</p>
+    </section>
+
+    <section id="competitions">
+      <h2>Competitions</h2>
+      <p>Find global CubeSat design and space competitions for students and enthusiasts to showcase their ideas and innovations.</p>
+    </section>
+  </div>
+
+</body>
+</html>
