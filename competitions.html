@@ -1,0 +1,168 @@
+<html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Cosmic Curriculum</title>
+    <!-- Font Awesome for rocket icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+ <script src="jscriptFunctions.js"></script>
+     <script src="load-nav.js"></script>
+
+    <div class="stars" id="stars"></div>
+    <div id="sidebar"></div>
+    <!-- Sidebar Nav 
+    <nav>
+        <a class="rocket-button" href="index.html">
+            <i class="fa-solid fa-rocket"></i>
+            <span>Home</span>
+        </a>
+        <a class="rocket-button" href="about.html">
+            <i class="fa-solid fa-rocket"></i>
+            <span>About</span>
+        </a>
+        <a class="rocket-button" href="cubesat.html">
+            <i class="fa-solid fa-rocket"></i>
+            <span>CubeSat</span>
+        </a>
+        <a class="rocket-button" href="launches.html">
+            <i class="fa-solid fa-rocket"></i>
+            <span>Launches</span>
+        </a>
+        <a class="rocket-button" href="spacenews.html">
+            <i class="fa-solid fa-rocket"></i>
+            <span>News</span>
+        </a>
+        <a class="rocket-button" href="learn.html">
+            <i class="fa-solid fa-rocket"></i>
+            <span>Learn</span>
+        </a>
+        <a class="rocket-button" href="competitions.html">
+            <i class="fa-solid fa-rocket"></i>
+            <span>Competitions</span>
+        </a>
+    </nav>
+-->
+    
+    <div class="content">
+        <header>
+            <div class="logo">Orbit Education</div>
+            <h2>
+                From Classroom to Cosmos!
+                <br />
+                Cosmic Curriculum to Explore, Learn, and Build Your Own CubeSat
+            </h2>
+        </header>
+
+        <section>
+
+            <h2 style="text-align: center; margin-bottom: 20px; color: #ff6b9d;">Space Competitions 🏆</h2>
+
+            <div class="age-filter">
+                <label for="age-select" style="font-size: 1.2em; color: #201446; margin-right: 10px;">Select your age
+                    group:</label>
+                <select id="age-select" onchange="filterCompetitions()">
+                    <option value="all">All Ages</option>
+                    <option value="elementary">Elementary (Ages 5-10)</option>
+                    <option value="middle">Middle School (Ages 11-13)</option>
+                    <option value="high">High School (Ages 14-18)</option>
+                </select>
+            </div>
+
+            <div id="competitions-container" class="content-grid">
+                <!-- Elementary competitions -->
+                <div class="content-card competition-card elementary">
+                    <h3>🎨 Space Art Contest</h3>
+                    <p>Draw or paint your vision of space exploration! Show us planets, rockets, astronauts, or alien
+                        worlds.</p>
+                    <div class="content-meta">📅 Due: July 15, 2025 | Ages 5-10</div>
+
+                </div>
+
+                <div class="content-card competition-card elementary">
+                    <h3>🌙 Moon Base Design Challenge</h3>
+                    <p>Design your dream moon base! What would you need to live on the Moon? Draw it out and explain
+                        your
+                        ideas.</p>
+                    <div class="content-meta">📅 Due: August 1, 2025 | Ages 6-10</div>
+
+                </div>
+
+                <!-- Middle school competitions -->
+                <div class="content-card competition-card middle">
+                    <h3>🛰️ CubeSat Design Challenge</h3>
+                    <p>Design your own CubeSat mission! What would you want your satellite to study? Present your
+                        mission
+                        plan.</p>
+                    <div class="content-meta">📅 Due: September 10, 2025 | Ages 11-13</div>
+                    <a href="https://www.cubesatdesign.org/middle-school" target="_blank" style="color: #4ecdc4;">Learn
+                        more
+                        →</a>
+                </div>
+
+                <div class="content-card competition-card middle">
+                    <h3>🚀 Model Rocket Competition</h3>
+                    <p>Build and launch your own model rocket! Compete for highest altitude and best design.</p>
+                    <div class="content-meta">📅 Due: October 5, 2025 | Ages 10-14</div>
+                    <a href="https://www.nar.org/competition" target="_blank" style="color: #4ecdc4;">Learn more →</a>
+                </div>
+
+                <div class="content-card competition-card middle">
+                    <h3>🌍 Earth from Space Photo Contest</h3>
+                    <p>Analyze real satellite images of Earth and create a presentation about what you discover!</p>
+                    <div class="content-meta">📅 Due: August 20, 2025 | Ages 11-13</div>
+                    <a href="https://earthfromspace.edu/contest" target="_blank" style="color: #4ecdc4;">Learn more
+                        →</a>
+                </div>
+
+                <!-- High school competitions -->
+                <div class="content-card competition-card high">
+                    <h3>🏅 NASA Student Launch Initiative</h3>
+                    <p>Design, build, and fly a high-powered rocket with a scientific payload. This is NASA's premier
+                        rocket
+                        competition!</p>
+                    <div class="content-meta">📅 Due: November 1, 2025 | Ages 14-18</div>
+                    <a href="https://www.nasa.gov/student-launch" target="_blank" style="color: #4ecdc4;">Learn more
+                        →</a>
+                </div>
+
+                <div class="content-card competition-card high">
+                    <h3>🛸 Zero Robotics Competition</h3>
+                    <p>Program robots (SPHERES) aboard the International Space Station! Code your way to victory in
+                        space!
+                    </p>
+                    <div class="content-meta">📅 Due: January 15, 2026 | Ages 14-18</div>
+                    <a href="https://zerorobotics.mit.edu" target="_blank" style="color: #4ecdc4;">Learn more →</a>
+                </div>
+
+                <div class="content-card competition-card high">
+                    <h3>🔬 Space Settlement Design Competition</h3>
+                    <p>Design a space settlement for 10,000 people! Consider everything from life support to recreation.
+                    </p>
+                    <div class="content-meta">📅 Due: March 1, 2026 | Ages 13-18</div>
+                    <a href="https://spacesettlement.org/contest" target="_blank" style="color: #4ecdc4;">Learn more
+                        →</a>
+                </div>
+
+                <div class="content-card competition-card high">
+                    <h3>🌟 Breakthrough Junior Challenge</h3>
+                    <p>Create a video explaining a complex space or physics concept in a simple, creative way!</p>
+                    <div class="content-meta"></div>
+                </div>
+            </div>
+
+
+
+        </section>
+    </div>
+
+</body>
+
+</html>
