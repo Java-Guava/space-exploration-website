@@ -517,10 +517,22 @@ nav {
     }
 }
 
+.big-text {
+  font-size: 1.5em; /* or 24px */
+  line-height: 1.6; /* optional for readability */
+}
 
 
+.big-text-blue {
+  font-size: 1.5em; /* or 24px */
+  color: #00d4ff;
+  line-height: 1.6; /* optional for readability */
+}
 
-
+.highlight {
+  color: #00d4ff; /* bright blue */
+  font-weight: bold; /* optional for emphasis */
+}
 
 header {
     text-align: center;
