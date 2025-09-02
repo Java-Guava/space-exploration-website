@@ -587,3 +587,22 @@ ul ul {
 ul ul ul {
   margin-left: 50px;  /* even deeper indentation for 3rd level */
 }
+
+#nasa-news ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#nasa-news li {
+  margin: 8px 0;
+}
+
+#nasa-news a {
+  text-decoration: none;
+  color: #00d4ff;
+  font-weight: bold;
+}
+
+#nasa-news a:hover {
+  color: #ffcc00;
+}

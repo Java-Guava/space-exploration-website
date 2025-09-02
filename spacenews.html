@@ -8,49 +8,122 @@
     <title>Cosmic Curriculum</title>
     <!-- Font Awesome for rocket icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
 </head>
 
 <body>
     <script src="jscriptFunctions.js"></script>
     <script src="loadnav.js"></script>
+    <script>
+        async function loadNASAFeed() {
+            const rssUrl = 'https://www.nasa.gov/rss/dyn/breaking_news.rss';
+            const apiUrl = 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(rssUrl);
+            const cubesaturl = 'https://phys.org/tags/cubesat/';
+
+            try {
+                const response = await fetch(apiUrl);
+                const data = await response.json();
+
+                let newsList = document.getElementById("news-list");
+                newsList.innerHTML = "";
+
+                data.items.slice(0, 6).forEach(item => {  // show 10 latest
+
+                    const card = document.createElement("div");
+                    card.classList.add("content-card");
+
+                    card.innerHTML = `
+  <h3><a href="${item.link}" target="_blank">${item.title}</a></h3>
+  <p>${item.description || ""}</p>`;
+
+                    newsList.appendChild(card);
+
+                    //let li = document.createElement("li");
+                    //li.innerHTML = `<a href="${item.link}" target="_blank">${item.title}</a>`;
+                    //newsList.appendChild(li);
+                });
+            } catch (error) {
+                console.error("Error loading feed:", error);
+            }
+        }
+
+        async function loadCubeSatFeed() {
+            // MIT CubeSat feed
+            const rssUrl = 'https://news.mit.edu/topic/cubesats/rss';
+            const apiUrl = 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(rssUrl);
+
+            try {
+                const response = await fetch(apiUrl);
+                const data = await response.json();
+                const list = document.getElementById('news-list-cubesat');
+                list.innerHTML = ""; // clear old content
+
+                // Show the 5 most recent articles
+                data.items.slice(0, 6).forEach(item => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<a href="${item.link}" target="_blank">${item.title}</a>`;
+                    list.appendChild(li);
+                });
+            } catch (error) {
+                console.error('Error loading CubeSat feed:', error);
+                document.getElementById('news-list-cubesat').innerHTML =
+                    "<li>⚠️ Unable to load CubeSat news right now.</li>";
+            }
+        }
+
+
+        async function loadPhysCubeSatNews() {
+            const feedUrl = 'https://phys.org/rss-feed/space-news/space-exploration/';
+            const apiUrl = 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(feedUrl);
+
+            try {
+                const response = await fetch(apiUrl);
+                const data = await response.json();
+                const listEl = document.getElementById("news-list-cubesat");
+                listEl.innerHTML = "";
+
+                // Filter for CubeSat mentions in titles
+                const items = data.items.filter(item => /cubesat/i.test(item.title));
+
+                // If none found, show the first few items as fallback
+                const displayItems = items.length > 0 ? items : data.items.slice(0, 10);
+
+                displayItems.slice(0, 6).forEach(item => {
+
+                    const card = document.createElement("div");
+                    card.classList.add("content-card");
+
+                    card.innerHTML = `
+  <h3><a href="${item.link}" target="_blank">${item.title}</a></h3>
+  <p>${item.description || ""}</p>
+`;
+
+                    listEl.appendChild(card);
+
+                    //const li = document.createElement("li");
+                    //li.innerHTML = `<a href="${item.link}" target="_blank">${item.title}</a>`;
+                    //listEl.appendChild(li);
+                });
+            } catch (err) {
+                console.error("Failed to load Phys.org news:", err);
+                document.getElementById("news-list-cubesat").innerHTML =
+                    "<li>Unable to load news at this time.</li>";
+            }
+        }
+
+
+
+        loadNASAFeed();
+        <!-- loadCubeSatFeed(); -->
+
+        loadPhysCubeSatNews();
+
+
+    </script>
+
 
     <div class="stars" id="stars"></div>
     <div id="sidebar"></div>
-
-
-    <!-- Sidebar Nav 
-    <nav>
-        <a class="rocket-button" href="index.html">
-            <i class="fa-solid fa-rocket"></i>
-            <span>Home</span>
-        </a>
-        <a class="rocket-button" href="about.html">
-            <i class="fa-solid fa-rocket"></i>
-            <span>About</span>
-        </a>
-        <a class="rocket-button" href="cubesat.html">
-            <i class="fa-solid fa-rocket"></i>
-            <span>CubeSat</span>
-        </a>
-        <a class="rocket-button" href="launches.html">
-            <i class="fa-solid fa-rocket"></i>
-            <span>Launches</span>
-        </a>
-        <a class="rocket-button" href="spacenews.html">
-            <i class="fa-solid fa-rocket"></i>
-            <span>News</span>
-        </a>
-        <a class="rocket-button" href="learn.html">
-            <i class="fa-solid fa-rocket"></i>
-            <span>Learn</span>
-        </a>
-        <a class="rocket-button" href="competitions.html">
-            <i class="fa-solid fa-rocket"></i>
-            <span>Competitions</span>
-        </a>
-    </nav>
--->
-    
     <div class="content">
         <header>
             <div class="logo">Orbit Education</div>
@@ -60,6 +133,18 @@
                 Cosmic Curriculum to Explore, Learn, and Build Your Own CubeSat
             </h2>
         </header>
+
+        <section id="nasa-news">
+            <h2><img src=nasaicon.png width="50" height="50"> NASA News</h2>
+            <br>
+            <ul class="content-grid" id="news-list"></ul>
+        </section>
+        <section>
+            <h2> <img src=cubesaticon.png  width="50" height="50"> CubeSat News</h2>
+            <br>
+            <ul class="content-grid" id="news-list-cubesat"></ul>
+        </section>
+
 
         <section>
             <h2 style="text-align: center; margin-bottom: 30px; color: #ff6b9d">
