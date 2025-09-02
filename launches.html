@@ -14,43 +14,48 @@
 <body>
 <script src="jscriptFunctions.js"></script>
     <script src="loadnav.js"></script>
+<script>
+async function loadLaunchFeed(rssUrl) {
+  const apiUrl = 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(rssUrl);
+  const
+   grid = document.getElementById('launch-grid');
+
+  try {
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+    grid.innerHTML = ''; // clear previous content
+
+    data.items.slice(0, 5).forEach(item => {
+      const card = document.createElement('div');
+      card.classList.add('content-card');
+
+      card.innerHTML = `
+        <h3><a href="${item.link}" target="_blank">${item.title}</a></h3>
+        <p>${item.pubDate ? new Date(item.pubDate).toLocaleDateString() : ''}</p>
+        <p>${item.description || ''}</p>
+      `;
+
+      grid.appendChild(card);
+    });
+
+  } catch (error) {
+    console.error('Error loading feed:', error);
+    grid.innerHTML = '<p>Unable to load launch news at the moment.</p>';
+  }
+}
+
+// Optional: load SpaceX from Spaceflight Now feed
+loadLaunchFeed('https://spaceflightnow.com/launch-schedule/feed/');
+
+// Load NASA and SpaceX feeds
+//loadLaunchFeed('https://www.nasa.gov/rss/dyn/breaking_news.rss');
+
+</script>
+
 
     <div class="stars" id="stars"></div>
     <div id="sidebar"></div>
 
-
-    <!-- Sidebar Nav 
-    <nav>
-        <a class="rocket-button" href="index.html">
-            <i class="fa-solid fa-rocket"></i>
-            <span>Home</span>
-        </a>
-        <a class="rocket-button" href="about.html">
-            <i class="fa-solid fa-rocket"></i>
-            <span>About</span>
-        </a>
-        <a class="rocket-button" href="cubesat.html">
-            <i class="fa-solid fa-rocket"></i>
-            <span>CubeSat</span>
-        </a>
-        <a class="rocket-button" href="launches.html">
-            <i class="fa-solid fa-rocket"></i>
-            <span>Launches</span>
-        </a>
-        <a class="rocket-button" href="spacenews.html">
-            <i class="fa-solid fa-rocket"></i>
-            <span>News</span>
-        </a>
-        <a class="rocket-button" href="learn.html">
-            <i class="fa-solid fa-rocket"></i>
-            <span>Learn</span>
-        </a>
-        <a class="rocket-button" href="competitions.html">
-            <i class="fa-solid fa-rocket"></i>
-            <span>Competitions</span>
-        </a>
-    </nav>
--->
     <div class="content">
         <header>
             <div class="logo">Orbit Education</div>
@@ -60,6 +65,13 @@
                 Cosmic Curriculum to Explore, Learn, and Build Your Own CubeSat
             </h2>
         </header>
+
+        <section id="launch-news">
+        <h2>🚀 Upcoming Space Launches</h2>
+  <div class="content-grid" id="launch-grid"></div>
+</section>
+
+
         <section>
             <h2 style="text-align: center; margin-bottom: 30px; color: #ff6b9d;"> Launch Livestreams</h2>
             <p>Are you curious to see how rocket launches work? Watch live rocket launches from various space agencies
