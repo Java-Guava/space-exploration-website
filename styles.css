@@ -606,3 +606,18 @@ ul ul ul {
 #nasa-news a:hover {
   color: #ffcc00;
 }
+
+.age-dropdown {
+  background-color: white;   /* dropdown background */
+  color: black;              /* text color */
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1em;
+}
+
+.age-dropdown:hover,
+.age-dropdown:focus {
+  background-color: #f0f0f0;
+  color: black;
+}
