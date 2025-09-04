@@ -12,45 +12,47 @@
 </head>
 
 <body>
-<script src="jscriptFunctions.js"></script>
+    <script src="jscriptFunctions.js"></script>
     <script src="loadnav.js"></script>
-<script>
-async function loadLaunchFeed(rssUrl) {
-  const apiUrl = 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(rssUrl);
-  const
-   grid = document.getElementById('launch-grid');
+    <script>
+        async function loadLaunchFeed(rssUrl) {
+            const apiUrl = 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(rssUrl);
+            const
+                grid = document.getElementById('launch-grid');
 
-  try {
-    const response = await fetch(apiUrl);
-    const data = await response.json();
-    grid.innerHTML = ''; // clear previous content
+            try {
+                const response = await fetch(apiUrl);
+                const data = await response.json();
+                grid.innerHTML = ''; // clear previous content
 
-    data.items.slice(0, 5).forEach(item => {
-      const card = document.createElement('div');
-      card.classList.add('content-card');
+                data.items.slice(0, 5).forEach(item => {
+                    const card = document.createElement('div');
+                    card.classList.add('content-card');
 
-      card.innerHTML = `
+                    card.innerHTML = `
         <h3><a href="${item.link}" target="_blank">${item.title}</a></h3>
         <p>${item.pubDate ? new Date(item.pubDate).toLocaleDateString() : ''}</p>
         <p>${item.description || ''}</p>
       `;
 
-      grid.appendChild(card);
+                    grid.appendChild(card);
+                });
+
+            } catch (error) {
+                console.error('Error loading feed:', error);
+                grid.innerHTML = '<p>Unable to load launch news at the moment.</p>';
+            }
+        }
+
+       //'https://spaceflightnow.com/launch-schedule/feed/');
+    //  Only call this AFTER the DOM is loaded:
+    document.addEventListener('DOMContentLoaded', function () {
+        loadLaunchFeed('https://spacenews.com/tag/spacex/feed/');
+       
     });
 
-  } catch (error) {
-    console.error('Error loading feed:', error);
-    grid.innerHTML = '<p>Unable to load launch news at the moment.</p>';
-  }
-}
 
-// Optional: load SpaceX from Spaceflight Now feed
-loadLaunchFeed('https://spaceflightnow.com/launch-schedule/feed/');
-
-// Load NASA and SpaceX feeds
-//loadLaunchFeed('https://www.nasa.gov/rss/dyn/breaking_news.rss');
-
-</script>
+    </script>
 
 
     <div class="stars" id="stars"></div>
@@ -67,9 +69,9 @@ loadLaunchFeed('https://spaceflightnow.com/launch-schedule/feed/');
         </header>
 
         <section id="launch-news">
-        <h2>🚀 Upcoming Space Launches</h2>
-  <div class="content-grid" id="launch-grid"></div>
-</section>
+            <h2> Recent Space Launches</h2>
+            <div class="content-grid" id="launch-grid"></div>
+        </section>
 
 
         <section>

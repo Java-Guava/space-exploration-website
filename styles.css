@@ -125,18 +125,20 @@ header {
 }
 
 .hero {
-    text-align: center;
+    text-align: left;
     margin-bottom: 40px;
 }
 
 .hero h1 {
     font-size: 3em;
+    text-align: center;
     margin-bottom: 20px;
     background: linear-gradient(45deg, #00d4ff, #c471ed);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
+
 
 .space-facts {
     display: grid;
@@ -191,6 +193,12 @@ header {
 .content-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.content-card img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 .content-card h3 {
@@ -529,6 +537,22 @@ nav {
   line-height: 1.6; /* optional for readability */
 }
 
+.medium-text {
+    font-size: 1.1em;
+    /* or 24px */
+    line-height: 1.6;
+    /* optional for readability */
+}
+
+
+.medium-text-blue {
+    font-size: 1.1em;
+    /* or 24px */
+    color: #00d4ff;
+    line-height: 1.6;
+    /* optional for readability */
+}
+
 .highlight {
   color: #00d4ff; /* bright blue */
   font-weight: bold; /* optional for emphasis */
@@ -620,4 +644,28 @@ ul ul ul {
 .age-dropdown:focus {
   background-color: #f0f0f0;
   color: black;
+}
+
+.link-button {
+    background: linear-gradient(45deg, #12c2e9, #c471ed);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.link-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(18, 194, 233, 0.5);
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    /* centers horizontally */
+    margin-top: 20px;
+    /* optional spacing */
 }

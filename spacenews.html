@@ -112,11 +112,14 @@
         }
 
 
-
-        loadNASAFeed();
+    document.addEventListener('DOMContentLoaded', function () {
+       loadNASAFeed();
         <!-- loadCubeSatFeed(); -->
 
         loadPhysCubeSatNews();
+
+    });
+       
 
 
     </script>
@@ -144,11 +147,8 @@
             <br>
             <ul class="content-grid" id="news-list-cubesat"></ul>
         </section>
-
-
         <section>
-            <h2 style="text-align: center; margin-bottom: 30px; color: #ff6b9d">
-                Space News 📰
+            <h2> 📰 Space News
             </h2>
 
             <div class="content-grid">
